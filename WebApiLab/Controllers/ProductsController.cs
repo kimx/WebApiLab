@@ -17,13 +17,13 @@ namespace WebApiLab.Controllers
             new Product { Id = 3, Name = "Ship", Category = "MPISI", Price = 16.99M }  
         };
 
-        //Product
+        //api/Product
         public IEnumerable<Product> GetAllProducts()
         {
             return products;
         }
 
-        //Product/1
+        //api/Product/1
         public Product GetProductById(int id)
         {
             var product = products.FirstOrDefault((p) => p.Id == id);
@@ -34,7 +34,7 @@ namespace WebApiLab.Controllers
             return product;
         }
 
-        //Product/?category=TAIFEI
+        //api/Product/?category=TAIFEI
         public IEnumerable<Product> GetProductsByCategory(string category)
         {
             return products.Where(p => string.Equals(p.Category, category,
