@@ -15,6 +15,13 @@ namespace WebApiLab
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+name: "AreaAPI",
+routeTemplate: "api/{area}/{controller}/{id}",
+defaults: new { id = RouteParameter.Optional }
+, constraints: new { area = @"\w{3}" }//限定Area才吃此設定，防put 404 error
+);
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

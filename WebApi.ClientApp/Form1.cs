@@ -64,6 +64,16 @@ namespace WebApi.ClientApp
             GetAll();
         }
 
+        private void btnPut_Click(object sender, EventArgs e)
+        {
+            Product p = new Product();
+            p.Name = "Put Name";
+            p.Id = 1;
+            p.Price = 100;
+            var resp = client.PutAsJsonAsync("api/products/" + p.Id, p).Result;
+            resp.EnsureSuccessStatusCode();
+        }
+
 
     }
 }

@@ -49,6 +49,10 @@ namespace WebApiLab.Controllers
             products = list.ToArray();
         }
 
+        public void Put(int id, [FromBody]Product value)
+        {
+          
+        }
 
     }
 }
