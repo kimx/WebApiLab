@@ -72,6 +72,7 @@ namespace WebApi.ClientApp
             p.Price = 100;
             var resp = client.PutAsJsonAsync("api/products/" + p.Id, p).Result;
             resp.EnsureSuccessStatusCode();
+            GetAll();
         }
 
 
