@@ -42,16 +42,17 @@ namespace WebApiLab.Controllers
         }
 
         // POST api/products
-        public void Post([FromBody]Product value)
+        public int Post([FromBody]Product value)
         {
             var list = products.ToList();
             list.Add(value);
             products = list.ToArray();
+            return 2;
         }
 
         public void Put(int id, [FromBody]Product value)
         {
-          
+
         }
 
     }

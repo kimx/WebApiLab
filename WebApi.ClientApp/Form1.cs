@@ -61,6 +61,7 @@ namespace WebApi.ClientApp
             p.Price = 100;
             var resp = client.PostAsJsonAsync("api/products", p).Result;
             resp.EnsureSuccessStatusCode();
+            int effect = resp.Content.ReadAsAsync<int>().Result;
             GetAll();
         }
 
