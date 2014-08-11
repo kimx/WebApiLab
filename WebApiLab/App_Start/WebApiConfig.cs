@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Routing;
 
 namespace WebApiLab
 {
@@ -23,13 +25,23 @@ namespace WebApiLab
             //);
 
 
+ 
             //test:http://localhost:3752/rd
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
 
+            //2014/08/11重點為default的id約束及DefaultApiWithAction，可以使用明確的action來呼叫
+            //2014/08/11看起來WebApi最好的設定方式
+            //http://lonetechie.com/2013/03/04/fixing-multiple-actions-were-found-that-match-the-request-aspnet-webapi/
+            config.Routes.MapHttpRoute("DefaultApiWithId", "api/{controller}/{id}", new { id = RouteParameter.Optional }, new { id = @"\d+" });
+            config.Routes.MapHttpRoute("DefaultApiWithAction", "api/{controller}/{action}");
+            config.Routes.MapHttpRoute("DefaultApiGet", "api/{controller}", new { action = "Get" }, new { httpMethod = new HttpMethodConstraint(HttpMethod.Get) });
+            config.Routes.MapHttpRoute("DefaultApiPost", "api/{controller}", new { action = "Post" }, new { httpMethod = new HttpMethodConstraint(HttpMethod.Post) });
+            config.Routes.MapHttpRoute("DefaultApiPut", "api/{controller}", new { action = "Put" }, new { httpMethod = new HttpMethodConstraint(HttpMethod.Put) });
+            config.Routes.MapHttpRoute("DefaultApiDelete", "api/{controller}", new { action = "Delete" }, new { httpMethod = new HttpMethodConstraint(HttpMethod.Delete) });
 
 
         }
