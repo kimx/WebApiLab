@@ -33,8 +33,9 @@ namespace WebApiLab.Controllers
 
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public bool Post([FromBody]string value)
         {
+            return value=="kim";
         }
 
         // PUT api/values/5

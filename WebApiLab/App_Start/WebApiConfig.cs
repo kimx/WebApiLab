@@ -27,11 +27,12 @@ namespace WebApiLab
 
  
             //test:http://localhost:3752/rd
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+            return;
 
             //2014/08/11重點為default的id約束及DefaultApiWithAction，可以使用明確的action來呼叫
             //2014/08/11看起來WebApi最好的設定方式

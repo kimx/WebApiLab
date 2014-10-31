@@ -18,10 +18,14 @@ namespace WebApiLab.Controllers
         };
 
         //api/Product
+        //http://localhost:3752/api/products/GetAllProducts
         public IEnumerable<Product> GetAllProducts()
         {
             return products;
         }
+
+  
+
 
         //api/Product/1
         public Product GetProductById(int id)
@@ -35,6 +39,9 @@ namespace WebApiLab.Controllers
         }
 
         //api/Product/?category=TAIFEI
+
+        //route:DefaultApiWithAction
+       // http://localhost:3752/api/products/GetProductsByCategory/?category=TAIFEI
         public IEnumerable<Product> GetProductsByCategory(string category)
         {
             return products.Where(p => string.Equals(p.Category, category,
