@@ -12,9 +12,9 @@ namespace WebApiLab.Controllers
     {
         static Product[] products = new Product[]  
         {  
-            new Product { Id = 1, Name = "Coffee", Category = "TAIFEI", Price = 1 },  
-            new Product { Id = 2, Name = "Bean", Category = "TAIFEI", Price = 3.75M },  
-            new Product { Id = 3, Name = "Ship", Category = "MPISI", Price = 16.99M }  
+            new Product { Id = 1, Name = "Coffee", Category = "Startbukers", Price = 1 },  
+            new Product { Id = 2, Name = "Bean", Category = "Startbukers", Price = 3.75M },  
+            new Product { Id = 3, Name = "Ship", Category = "Startbukers", Price = 16.99M }  
         };
 
         //api/Product
