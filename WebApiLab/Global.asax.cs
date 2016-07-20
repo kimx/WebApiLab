@@ -26,6 +26,7 @@ namespace WebApiLab
             var contractResolver = (DefaultContractResolver)GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver;
             contractResolver.IgnoreSerializableAttribute = true;
 
+
             GlobalConfiguration.Configuration.MessageHandlers.Add(new APIKeyHandler());//http://code.tutsplus.com/tutorials/securing-aspnet-web-api--cms-26012
         }
     }
