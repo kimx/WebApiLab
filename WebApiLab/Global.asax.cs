@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebApiLab.Security;
 
 namespace WebApiLab
 {
@@ -24,6 +25,8 @@ namespace WebApiLab
 
             var contractResolver = (DefaultContractResolver)GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver;
             contractResolver.IgnoreSerializableAttribute = true;
+
+            GlobalConfiguration.Configuration.MessageHandlers.Add(new APIKeyHandler());//http://code.tutsplus.com/tutorials/securing-aspnet-web-api--cms-26012
         }
     }
 }

@@ -19,6 +19,7 @@ namespace WebApi.ClientApp
         public Form1()
         {
             client.BaseAddress = new Uri("http://localhost:3752");
+            client.DefaultRequestHeaders.Add("API_KEY", "KIMX-INFO-API-KEY");
             InitializeComponent();
         }
 
